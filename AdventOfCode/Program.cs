@@ -21,8 +21,8 @@ namespace AdventOfCode
 			string[] input = File.ReadAllLines(AppDomain.CurrentDomain.BaseDirectory + "input.txt");
 
 			// challenge 1 + 2
-			var challenge = new C2();
-			var output = challenge.Part2(input);
+			var challenge = new C3();
+			var output = challenge.Part2(input[0]);
 
 			stopwatch.Stop();
 			
