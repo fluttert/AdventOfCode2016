@@ -18,10 +18,10 @@ namespace AdventOfCode
 			var stopwatch = new Stopwatch(); stopwatch.Start();
 
 			// input file, prevents input clutter
-			string input = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "input.txt");
+			string[] input = File.ReadAllLines(AppDomain.CurrentDomain.BaseDirectory + "input.txt");
 
 			// challenge 1 + 2
-			var challenge = new C1();
+			var challenge = new C2();
 			var output = challenge.Part2(input);
 
 			stopwatch.Stop();
