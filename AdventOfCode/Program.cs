@@ -22,7 +22,7 @@ namespace AdventOfCode
             string[] input = File.ReadAllLines(AppDomain.CurrentDomain.BaseDirectory + "input.txt");
 
             // challenge 1 + 2
-            var challenge = new C5();
+            var challenge = new C6();
             //var output = challenge.Part1(input);
             var output = challenge.Part2(input);
 
