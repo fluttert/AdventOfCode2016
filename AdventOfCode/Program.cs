@@ -2,6 +2,7 @@
 using System;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 
 namespace AdventOfCode
 {
@@ -18,15 +19,15 @@ namespace AdventOfCode
             var stopwatch = new Stopwatch(); stopwatch.Start();
 
             // input file, prevents input clutter
-            //string[] input = File.ReadAllLines(AppDomain.CurrentDomain.BaseDirectory + "input.txt");
-            string input = "yzbqklnj";
+            string[] input = File.ReadAllLines(AppDomain.CurrentDomain.BaseDirectory + "input.txt");
 
             // challenge 1 + 2
-            var challenge = new C4();
+            var challenge = new C5();
+            //var output = challenge.Part1(input);
             var output = challenge.Part2(input);
 
             stopwatch.Stop();
-            
+
             // make sure some output is there with or without debugging :P
             Console.WriteLine($"Calculation took {stopwatch.ElapsedMilliseconds} ms");
             Console.WriteLine($"Answer: {output}");
