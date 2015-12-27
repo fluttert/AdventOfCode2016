@@ -5,32 +5,33 @@ using System.IO;
 
 namespace AdventOfCode
 {
-	/// <summary>
-	/// The advent of code challenge
-	/// </summary>
-	/// <remarks>Might contain voodoo code</remarks>
-	/// <author>Ernst Fluttert / Camulos</author>
-	internal class Program
-	{
-		private static void Main(string[] args)
-		{
-			// diagnostics
-			var stopwatch = new Stopwatch(); stopwatch.Start();
+    /// <summary>
+    /// The advent of code challenge
+    /// </summary>
+    /// <remarks>Might contain voodoo code</remarks>
+    /// <author>Ernst Fluttert / Camulos</author>
+    internal class Program
+    {
+        private static void Main(string[] args)
+        {
+            // diagnostics
+            var stopwatch = new Stopwatch(); stopwatch.Start();
 
-			// input file, prevents input clutter
-			string[] input = File.ReadAllLines(AppDomain.CurrentDomain.BaseDirectory + "input.txt");
+            // input file, prevents input clutter
+            //string[] input = File.ReadAllLines(AppDomain.CurrentDomain.BaseDirectory + "input.txt");
+            string input = "yzbqklnj";
 
-			// challenge 1 + 2
-			var challenge = new C3();
-			var output = challenge.Part2(input[0]);
+            // challenge 1 + 2
+            var challenge = new C4();
+            var output = challenge.Part2(input);
 
-			stopwatch.Stop();
-			
-			// make sure some output is there with or without debugging :P
-			Console.WriteLine($"Calculation took {stopwatch.ElapsedMilliseconds} ms");
-			Console.WriteLine($"Answer: {output}");
-			Debug.WriteLine($"Calculation took {stopwatch.ElapsedMilliseconds} ms");
-			Debug.WriteLine($"Answer: {output}");
-		}
-	}
+            stopwatch.Stop();
+            
+            // make sure some output is there with or without debugging :P
+            Console.WriteLine($"Calculation took {stopwatch.ElapsedMilliseconds} ms");
+            Console.WriteLine($"Answer: {output}");
+            Debug.WriteLine($"Calculation took {stopwatch.ElapsedMilliseconds} ms");
+            Debug.WriteLine($"Answer: {output}");
+        }
+    }
 }
