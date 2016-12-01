@@ -7,14 +7,14 @@ namespace AdventOfCode.Challenges
     {
         public int Part1(string input)
         {
-            int vertical = 0, horizontal = 0;
-            char direction = 'N'; // N E S W
+            int vertical = 0, horizontal = 0;   // coordinate
+            char direction = 'N';               // N E S W
             var instructions = input.Replace(" ", "").Split(',');
             for (int i = 0; i < instructions.Length; i++)
             {
                 char leftOrRight = instructions[i][0];
                 int distance = int.Parse(instructions[i].Substring(1));
-                int multiplier = 1;
+                int multiplier = 1; // negative distance or positive?
 
                 if ((direction == 'N' && leftOrRight == 'L') ||
                     (direction == 'S' && leftOrRight == 'R') ||
@@ -23,12 +23,12 @@ namespace AdventOfCode.Challenges
                 {
                     multiplier = -1;
                 }
-                if (i % 2 == 0)
+                if (i % 2 == 0)  // on even turn we go east or west
                 {
                     direction = multiplier == 1 ? 'E' : 'W';
                     horizontal += (multiplier * distance);
                 }
-                else
+                else  // on odd turn we go north south
                 {
                     direction = multiplier == 1 ? 'N' : 'S';
                     vertical += (multiplier * distance);
