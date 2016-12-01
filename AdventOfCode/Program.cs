@@ -19,20 +19,22 @@ namespace AdventOfCode
             var stopwatch = new Stopwatch(); stopwatch.Start();
 
             // input file, prevents input clutter
-            string[] input = File.ReadAllLines(AppDomain.CurrentDomain.BaseDirectory + "input.txt");
+            string input = File.ReadAllLines(AppDomain.CurrentDomain.BaseDirectory + "input.txt")[0];
 
             // challenge 1 + 2
-            var challenge = new C6();
-            //var output = challenge.Part1(input);
-            var output = challenge.Part2(input);
+            var challenge = new C1();
+            var output1 = challenge.Part1(input);
+            var output2 = challenge.Part2(input);
 
             stopwatch.Stop();
 
             // make sure some output is there with or without debugging :P
             Console.WriteLine($"Calculation took {stopwatch.ElapsedMilliseconds} ms");
-            Console.WriteLine($"Answer: {output}");
+            Console.WriteLine($"Answer1: {output1}");
+            Console.WriteLine($"Answer2: {output2}");
             Debug.WriteLine($"Calculation took {stopwatch.ElapsedMilliseconds} ms");
-            Debug.WriteLine($"Answer: {output}");
+            Debug.WriteLine($"Answer1: {output1}");
+            Debug.WriteLine($"Answer2: {output2}");
         }
     }
 }
