@@ -14,10 +14,10 @@ namespace AdventOfCode.Challenges
                 string line = input[i].Trim();
                 foreach (char instruction in line)
                 {
-                    if (instruction == 'U') { vertical = (vertical == 0 ? 0 : vertical - 1); }
-                    if (instruction == 'D') { vertical = (vertical == 2 ? 2 : vertical + 1); }
-                    if (instruction == 'L') { horizontal = (horizontal == 0 ? 0 : horizontal - 1); }
-                    if (instruction == 'R') { horizontal = (horizontal == 2 ? 2 : horizontal + 1); }
+                    if (instruction == 'U' && vertical>0) { vertical -= 1; }
+                    if (instruction == 'D' && vertical<2) { vertical += 1; }
+                    if (instruction == 'L' && horizontal>0) { horizontal -= 1; }
+                    if (instruction == 'R' && horizontal<2) { horizontal += 1; }
                 }
                 result.Add(keypad[vertical][horizontal]);
             }
