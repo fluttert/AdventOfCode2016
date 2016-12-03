@@ -6,7 +6,7 @@ namespace AdventOfCode.Challenges
     {
         public string Part1(string[] input)
         {
-            char[][] keypad = { new[] { '1', '2', '3' }, new[] { '4', '5', '6' }, new[] { '7', '8', '9' } };
+            string[] keypad = { "123", "456", "789" };
             int vertical = 1, horizontal = 1;
             List<char> result = new List<char>();
             for (int i = 0; i < input.Length; i++)
@@ -26,13 +26,7 @@ namespace AdventOfCode.Challenges
 
         public string Part2(string[] input)
         {
-            char[][] keypad = { new[] { '0','0', '0', '0','0','0','0' },
-            new[] { '0','0', '0', '1','0','0','0' },
-            new[] { '0','0', '2', '3','4','0','0' },
-            new[] { '0','5', '6', '7','8','9','0' },
-            new[] { '0','0', 'A', 'B','C','0','0' },
-            new[] { '0','0', '0', 'D','0','0','0' },
-            new[] { '0','0', '0', '0','0','0','0' }};
+            string[] keypad = { "0000000", "0001000", "0023400", "0567890", "00ABC00", "000D000", "0000000" };
             int vertical = 3, horizontal = 1;
             List<char> result = new List<char>();
             for (int i = 0; i < input.Length; i++)
