@@ -12,14 +12,14 @@ namespace AdventOfCode.Challenges.Tests
     public class Day2Tests
     {
         [TestMethod()]
-        public void Part1Test()
+        public void Day02Part1Test()
         {
             string[] input = { "ULL", "RRDDD", "LURDL", "UUUUD" };
             Assert.IsTrue(new Day02().Part1(input) == "1985");
         }
 
         [TestMethod()]
-        public void Part2Test() {
+        public void Day02Part2Test() {
             string[] input = { "ULL", "RRDDD", "LURDL", "UUUUD" };
             Assert.IsTrue(new Day02().Part2(input) == "5DB3");
         }

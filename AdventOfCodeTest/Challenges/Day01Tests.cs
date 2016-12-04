@@ -12,7 +12,7 @@ namespace AdventOfCode.Challenges.Tests
     public class C1Tests
     {
         [TestMethod()]
-        public void Part1Test()
+        public void Day01Part1Test()
         {
             Day01 challenge = new Day01();
             Assert.IsTrue(challenge.Part1("R2, L3") == 5);
@@ -21,7 +21,7 @@ namespace AdventOfCode.Challenges.Tests
         }
 
         [TestMethod()]
-        public void Part2Test() {
+        public void Day01Part2Test() {
             Day01 challenge = new Day01();
             Assert.IsTrue(challenge.Part2("R8, R4, R4, R8") == 4);
         }

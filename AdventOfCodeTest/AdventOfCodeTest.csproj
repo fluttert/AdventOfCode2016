@@ -52,9 +52,9 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Challenges\Day04Tests.cs" />
-    <Compile Include="Challenges\Day1Tests.cs" />
-    <Compile Include="Challenges\Day2Tests.cs" />
-    <Compile Include="Challenges\Day3Tests.cs" />
+    <Compile Include="Challenges\Day01Tests.cs" />
+    <Compile Include="Challenges\Day02Tests.cs" />
+    <Compile Include="Challenges\Day03Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

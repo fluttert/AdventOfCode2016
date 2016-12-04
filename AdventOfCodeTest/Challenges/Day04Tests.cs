@@ -12,7 +12,7 @@ namespace AdventOfCode.Tests
     public class Day04Tests
     {
         [TestMethod()]
-        public void Part1Test()
+        public void Day04Part01Test()
         {
             string[] input = new[] {
                 "aaaaa-bbb-z-y-x-123[abxyz]",
