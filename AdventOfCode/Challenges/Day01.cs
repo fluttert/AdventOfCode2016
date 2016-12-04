@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace AdventOfCode.Challenges
 {
-    public class Day1
+    public class Day01
     {
         public int Part1(string input)
         {

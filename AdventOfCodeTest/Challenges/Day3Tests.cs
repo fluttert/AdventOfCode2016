@@ -15,7 +15,7 @@ namespace AdventOfCode.Challenges.Tests
         public void Part1Test()
         {
             string[] input = { "5 10 25", "25 10 5", "5 10 12", " 10 15 5" };
-            Assert.IsTrue(new Day3().Part1(input) == 1);
+            Assert.IsTrue(new Day03().Part1(input) == 1);
         }
     }
 }

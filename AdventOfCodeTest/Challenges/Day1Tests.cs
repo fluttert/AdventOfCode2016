@@ -14,7 +14,7 @@ namespace AdventOfCode.Challenges.Tests
         [TestMethod()]
         public void Part1Test()
         {
-            Day1 challenge = new Day1();
+            Day01 challenge = new Day01();
             Assert.IsTrue(challenge.Part1("R2, L3") == 5);
             Assert.IsTrue(challenge.Part1("R2, R2, R2") == 2);
             Assert.IsTrue(challenge.Part1("R5, L5, R5, R3") == 12);
@@ -22,7 +22,7 @@ namespace AdventOfCode.Challenges.Tests
 
         [TestMethod()]
         public void Part2Test() {
-            Day1 challenge = new Day1();
+            Day01 challenge = new Day01();
             Assert.IsTrue(challenge.Part2("R8, R4, R4, R8") == 4);
         }
     }

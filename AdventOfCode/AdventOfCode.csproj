@@ -43,9 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Challenges\Day1.cs" />
-    <Compile Include="Challenges\Day2.cs" />
-    <Compile Include="Challenges\Day3.cs" />
+    <Compile Include="Challenges\Day01.cs" />
+    <Compile Include="Challenges\Day02.cs" />
+    <Compile Include="Challenges\Day03.cs" />
+    <Compile Include="Challenges\Day04.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

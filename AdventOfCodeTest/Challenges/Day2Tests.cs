@@ -15,13 +15,13 @@ namespace AdventOfCode.Challenges.Tests
         public void Part1Test()
         {
             string[] input = { "ULL", "RRDDD", "LURDL", "UUUUD" };
-            Assert.IsTrue(new Day2().Part1(input) == "1985");
+            Assert.IsTrue(new Day02().Part1(input) == "1985");
         }
 
         [TestMethod()]
         public void Part2Test() {
             string[] input = { "ULL", "RRDDD", "LURDL", "UUUUD" };
-            Assert.IsTrue(new Day2().Part2(input) == "5DB3");
+            Assert.IsTrue(new Day02().Part2(input) == "5DB3");
         }
     }
 }

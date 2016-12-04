@@ -2,7 +2,7 @@
 
 namespace AdventOfCode.Challenges
 {
-    public class Day3
+    public class Day03
     {
         public int Part1(string[] input)
         {
