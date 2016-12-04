@@ -63,11 +63,12 @@ namespace AdventOfCode
             // parse the string
             while (index < (encodedData.Length - 1))
             {
+                index++;
                 char currentChar = encodedData[index];
-                if (currentChar == '-') { index++; continue; }
+                if (currentChar == '-') { continue; }
                 if (currentChar >= '0' && currentChar <= '9')
                 {
-                    sectorId += currentChar; index++; continue;
+                    sectorId += currentChar; continue;
                 }
                 if (currentChar == '[')
                 {
@@ -76,7 +77,6 @@ namespace AdventOfCode
                 }
                 if (!dict.ContainsKey(currentChar)) { dict.Add(currentChar, 0); }
                 dict[currentChar]++;
-                index++;
             }
 
             // using the power of LINQ to get the top 5 chars in alphabetical order
