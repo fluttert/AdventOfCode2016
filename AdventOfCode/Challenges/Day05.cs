@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,18 +27,47 @@ namespace AdventOfCode.Challenges
             }
             Console.WriteLine($"Total process up to {currentIndex}");
             return new string(password.ToArray());
+
+            // total process took 48 seconds
         }
+
+        public string Part2(string[] input)
+        {
+            var key = "cxdnnyjw";
+            var password = new char[8];
+            int currentIndex = 0, charsFound =0;
+            while (charsFound < 8)
+            {
+                var curPassword = GetMd5Hash(key + currentIndex);
+                if (curPassword.StartsWith("00000"))
+                {
+                    char pos = curPassword[5];
+                    if(pos>='0' && pos<= '7' && password[(pos-'0')]=='\0')
+                    {
+                        password[(pos - '0')] = curPassword[6];
+                        charsFound++;
+                        Console.WriteLine($"============ FOUND ONE!");
+                    }
+                    
+                }
+                currentIndex++;
+
+                //if (currentIndex % 100000 == 0) { Console.WriteLine($"Processed up to {currentIndex}"); }
+            }
+            Debug.WriteLine($"Total process up to {currentIndex}");
+            return new string(password.ToArray());
+            // result was  25370047 hashed calculated in 100544 ms
+        }
+
+        internal static System.Security.Cryptography.MD5 Md5 = System.Security.Cryptography.MD5.Create();
 
         /// <summary>
         /// Reference implementation from MSDN
         /// https://msdn.microsoft.com/en-us/library/system.security.cryptography.md5(v=vs.110).aspx
         /// </summary>
-        /// <param name="md5Hash"></param>
-        /// <param name="input"></param>
-        /// <returns></returns>
         internal static string GetMd5Hash(string input)
         {
-            byte[] data = System.Security.Cryptography.MD5.Create().ComputeHash(Encoding.UTF8.GetBytes(input));
+            byte[] data = Md5.ComputeHash(Encoding.UTF8.GetBytes(input));
             StringBuilder sBuilder = new StringBuilder();
             for (int i = 0; i < data.Length; i++)
             {
