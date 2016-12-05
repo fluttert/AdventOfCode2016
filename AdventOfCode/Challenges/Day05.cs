@@ -35,20 +35,19 @@ namespace AdventOfCode.Challenges
         {
             var key = "cxdnnyjw";
             var password = new char[8];
-            int currentIndex = 0, charsFound =0;
+            int currentIndex = 0, charsFound = 0;
             while (charsFound < 8)
             {
                 var curPassword = GetMd5Hash(key + currentIndex);
                 if (curPassword.StartsWith("00000"))
                 {
                     char pos = curPassword[5];
-                    if(pos>='0' && pos<= '7' && password[(pos-'0')]=='\0')
+                    if (pos >= '0' && pos <= '7' && password[(pos - '0')] == '\0')
                     {
                         password[(pos - '0')] = curPassword[6];
                         charsFound++;
                         Console.WriteLine($"============ FOUND ONE!");
                     }
-                    
                 }
                 currentIndex++;
 
