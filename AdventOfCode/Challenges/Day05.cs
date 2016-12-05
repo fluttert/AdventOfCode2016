@@ -21,9 +21,8 @@ namespace AdventOfCode.Challenges
                 Byte[] digest = Md5.ComputeHash(Encoding.UTF8.GetBytes(key + currentIndex ));
                 if (digest[0] == 0 && digest[1] == 0 && (digest[2] & 0xF0) == 0)
                 {
-                    var characters = BitConverter.ToString(digest, 2, 1);
-                    password.Add(characters[1]);
-                    Console.WriteLine($"============ FOUND ONE!");
+                    password.Add(BitConverter.ToString(digest, 2, 1)[1]);
+                    //Console.WriteLine($"============ FOUND ONE!");
                 }
                 currentIndex++;
             }
@@ -48,7 +47,7 @@ namespace AdventOfCode.Challenges
                     {
                         password[(pos - '0')] = BitConverter.ToString(digest, 3, 1)[0];
                         charsFound++;
-                        Console.WriteLine($"============ FOUND ONE!");
+                        //Console.WriteLine($"============ FOUND ONE!");
                     }
                 }
                 currentIndex++;
