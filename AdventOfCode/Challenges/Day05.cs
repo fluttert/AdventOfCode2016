@@ -23,12 +23,12 @@ namespace AdventOfCode.Challenges
                 }
                 currentIndex++;
 
-                if (currentIndex % 100000 == 0) { Console.WriteLine($"Processed up to {currentIndex}"); }
+                //if (currentIndex % 100000 == 0) { Console.WriteLine($"Processed up to {currentIndex}"); }
             }
             Console.WriteLine($"Total process up to {currentIndex}");
+            Debug.WriteLine($"Total process up to {currentIndex}");
             return new string(password.ToArray());
-
-            // total process took 48 seconds
+            // result is based on 8202540 hashes calculated in 29293 ms
         }
 
         public string Part2(string[] input)
@@ -56,7 +56,7 @@ namespace AdventOfCode.Challenges
             }
             Debug.WriteLine($"Total process up to {currentIndex}");
             return new string(password.ToArray());
-            // result was  25370047 hashed calculated in 100544 ms
+            // result is based on 25370047 hashes calculated in 100544 ms
         }
 
         internal static System.Security.Cryptography.MD5 Md5 = System.Security.Cryptography.MD5.Create();

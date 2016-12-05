@@ -23,8 +23,8 @@ namespace AdventOfCode
 
             // challenge 1 + 2
             var challenge = new Day05();
-            var output1 = "";//challenge.Part1(input);
-            var output2 = challenge.Part2(input);
+            var output1 = challenge.Part1(input);
+            var output2 = "";// challenge.Part2(input);
 
             stopwatch.Stop();
 
