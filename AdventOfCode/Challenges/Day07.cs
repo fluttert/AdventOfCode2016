@@ -14,7 +14,7 @@ namespace AdventOfCode.Challenges
             foreach (string line in input)
             {
                 int brackets = 0;
-                bool foundAbba = false, foundInBrackets=false;
+                bool foundAbba = false, foundInBrackets = false;
                 for (int i = 0; i < (line.Length - 3); i++)
                 {
                     if (line[i] == '[' || line[i] == ']')
@@ -26,7 +26,6 @@ namespace AdventOfCode.Challenges
                     {
                         if (brackets > 0) { foundInBrackets = true; }
                         foundAbba = true;
-                        Console.WriteLine(line.Substring(i, 4));
                     }
                 }
                 tlsSupported += foundAbba && !foundInBrackets ? 1 : 0;
@@ -49,18 +48,20 @@ namespace AdventOfCode.Challenges
                         brackets += line[i] == '[' ? 1 : -1;
                         continue;
                     }
-                    if (line[i] != line[i + 1] && line[i] == line[i + 2] )
+                    if (line[i] != line[i + 1] && line[i] == line[i + 2])
                     {
                         string curSubstring = "" + line[i] + line[i + 1] + line[i + 2];
-                        string inverse = "" + line[i+1] + line[i] + line[i + 1];
-                        if (brackets == 0) {
-                            if (bab.Contains(inverse)) { sslSupported++;  break; }
+                        string inverse = "" + line[i + 1] + line[i] + line[i + 1];
+                        if (brackets == 0)
+                        {
+                            if (bab.Contains(inverse)) { sslSupported++; break; }
                             aba.Add(curSubstring);
                         }
-                        else {
+                        else
+                        {
                             if (aba.Contains(inverse)) { sslSupported++; break; }
                             bab.Add(curSubstring);
-                        } 
+                        }
                     }
                 }
             }
