@@ -56,6 +56,7 @@
     <Compile Include="Challenges\Day02Tests.cs" />
     <Compile Include="Challenges\Day03Tests.cs" />
     <Compile Include="Challenges\Day06Tests.cs" />
+    <Compile Include="Challenges\Day07Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
