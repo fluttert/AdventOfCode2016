@@ -22,9 +22,8 @@ namespace AdventOfCode
             var input = File.ReadAllLines(AppDomain.CurrentDomain.BaseDirectory + "input.txt");
 
             // challenge 1 + 2
-            var challenge = new Day08();
-            var output1 = challenge.Part1(input);
-            challenge.PrintScreen(challenge.screen);
+            var challenge = new Day09();
+            var output1 = challenge.Part1(input[0]).Length;
             var output2 = "";// challenge.Part2(input);
 
             stopwatch.Stop();
