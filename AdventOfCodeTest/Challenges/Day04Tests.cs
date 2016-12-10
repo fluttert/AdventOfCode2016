@@ -17,7 +17,6 @@ namespace AdventOfCode.Tests
             string[] input = new[] {
                 "aaaaa-bbb-z-y-x-123[abxyz]",
                 "a-b-c-d-e-f-g-h-987[abcde]",
-                "a-b-c-d-e-f-g-h-987[acbde]",
                 "not-a-real-room-404[oarel]",
                 "totally-real-room-200[decoy]"
             };

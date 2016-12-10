@@ -57,7 +57,7 @@ namespace AdventOfCode
         {
             var dict = new Dictionary<char, int>();
             string sectorId = "", checkSum = String.Empty;
-            int index = 0;
+            int index = -1;
 
             // parse the string
             while (index < (encodedData.Length - 1))
