@@ -22,9 +22,10 @@ namespace AdventOfCode
             var input = File.ReadAllLines(AppDomain.CurrentDomain.BaseDirectory + "input.txt");
 
             // challenge 1 + 2
-            var challenge = new Day07();
+            var challenge = new Day08();
             var output1 = challenge.Part1(input);
-            var output2 = challenge.Part2(input);
+            challenge.PrintScreen(challenge.screen);
+            var output2 = "";// challenge.Part2(input);
 
             stopwatch.Stop();
 
@@ -35,6 +36,7 @@ namespace AdventOfCode
             Debug.WriteLine($"Calculation took {stopwatch.ElapsedMilliseconds} ms");
             Debug.WriteLine($"Answer1: {output1}");
             Debug.WriteLine($"Answer2: {output2}");
+            Console.ReadLine();
         }
     }
 }
