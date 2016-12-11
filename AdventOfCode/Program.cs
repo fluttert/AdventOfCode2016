@@ -24,7 +24,7 @@ namespace AdventOfCode
             // challenge 1 + 2
             var challenge = new Day09();
             var output1 = challenge.Part1(input[0]).Length;
-            var output2 = "";// challenge.Part2(input);
+            var output2 = challenge.Part2(input[0]);
 
             stopwatch.Stop();
 
