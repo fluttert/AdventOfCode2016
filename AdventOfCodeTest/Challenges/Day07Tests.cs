@@ -6,7 +6,7 @@ namespace AdventOfCode.Challenges.Tests
     public class Day07Tests
     {
         [TestMethod()]
-        public void Part1Test()
+        public void Day07Part1Test()
         {
             string[] input = new[] {
                 "abba[mnop]qrst",
@@ -22,7 +22,7 @@ namespace AdventOfCode.Challenges.Tests
         }
 
         [TestMethod]
-        public void Part21Test()
+        public void Day07Part21Test()
         {
             string[] input = new[] {
                 "aba[bab]xyz",
