@@ -13,6 +13,7 @@ namespace AdventOfCode.Challenges
 
         public int Part1(string[] input)
         {
+
             return 0;
         }
 
@@ -26,6 +27,7 @@ namespace AdventOfCode.Challenges
             char[][] maze = new char[height][];
             for (int i = 0; i < height; i++)
             {
+                maze[i] = new char[width];
                 for (int j = 0; j < width; j++)
                 {
                     // formula: x*x + 3*x + 2*x*y + y + y*y
@@ -37,9 +39,10 @@ namespace AdventOfCode.Challenges
             return maze;
         }
 
+        // based on https://davidzych.com/converting-an-int-to-a-binary-string-in-c/
         public bool IsBinarySumEven(int sum)
         {
-            // based on https://davidzych.com/converting-an-int-to-a-binary-string-in-c/
+            // using a bit-operation-voodoo to count the 1's
             int ones = 0;
             while (sum > 0)
             {
