@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using AdventOfCode.Challenges;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace AdventOfCode.Challenges.Tests
 {
@@ -14,6 +15,14 @@ namespace AdventOfCode.Challenges.Tests
         }
 
         [TestMethod()]
+        public void day13Part1Test()
+        {
+            int actual = day13.Part1(null, 10, 7, 4);
+            int expected = 11;
+            Assert.IsTrue(actual == expected);
+        }
+
+        [TestMethod()]
         public void CreateMazeTest()
         {
             char[][] mazeActual = day13.CreateMaze(10, 7, 10);
@@ -25,7 +34,8 @@ namespace AdventOfCode.Challenges.Tests
             mazeExpected[4] = ".##..#..#.".ToCharArray();
             mazeExpected[5] = "..##....#.".ToCharArray();
             mazeExpected[6] = "#...##.###".ToCharArray();
-            for (int i = 0; i < mazeExpected.Length; i++) {
+            for (int i = 0; i < mazeExpected.Length; i++)
+            {
                 CollectionAssert.AreEqual(mazeExpected[i], mazeActual[i]);
             }
         }
@@ -44,5 +54,7 @@ namespace AdventOfCode.Challenges.Tests
             Assert.IsFalse(day13.IsBinarySumEven(8)); // 1000
             Assert.IsTrue(day13.IsBinarySumEven(9));  // 1001
         }
+
+        
     }
 }

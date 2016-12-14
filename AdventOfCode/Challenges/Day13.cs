@@ -10,16 +10,62 @@ namespace AdventOfCode.Challenges
     {
         private const char openSpace = '.';
         private const char wall = '#';
+        private const char beenHere = 'O';
 
-        public int Part1(string[] input)
+        public int Part1(string[] input, int seed = 1362, int destX = 31, int destY = 39)
         {
+            // create a maze that has x+20 and y+20
+            var maze = CreateMaze(seed, destY + 20, destX + 20);
 
-            return 0;
+            // tuple = X - Y - #steps
+            var queue = new Queue<Tuple<int, int, int>>();
+            queue.Enqueue(new Tuple<int, int, int>(1, 1, 0));
+            int minimumSteps = -1;
+            while (queue.Count > 0)
+            {
+                var curStep = queue.Dequeue();
+                int x = curStep.Item1, y = curStep.Item2, steps = curStep.Item3;
+                if (destX == x && destY == y)
+                {
+                    minimumSteps = steps;
+                    break;
+                }
+                maze[y][x] = beenHere;
+                steps++;
+                if (x > 0 && maze[y][x - 1] == openSpace) { queue.Enqueue(new Tuple<int, int, int>(x - 1, y, steps)); }
+                if (x < (maze[0].Length - 2) && maze[y][x + 1] == openSpace) { queue.Enqueue(new Tuple<int, int, int>(x + 1, y, steps)); }
+                if (y > 0 && maze[y-1][x] == openSpace) { queue.Enqueue(new Tuple<int, int, int>(x, y-1, steps)); }
+                if (y < (maze.Length - 2) && maze[y+1][x] == openSpace) { queue.Enqueue(new Tuple<int, int, int>(x, y + 1, steps)); }
+            }
+
+            return minimumSteps;
         }
 
-        public int Part2(string[] input)
+        public int Part2(string[] input, int seed = 1362)
         {
-            return 0;
+            // create a maze that is 60 * 60
+            var maze = CreateMaze(seed, 60, 60);
+
+            // tuple = X - Y - #steps
+            var queue = new Queue<Tuple<int, int, int>>();
+            queue.Enqueue(new Tuple<int, int, int>(1, 1, 0));
+            int maximumSteps = 50;
+            int uniqueCoordinates = 0;
+            while (queue.Count > 0)
+            {
+                var curStep = queue.Dequeue();
+                int x = curStep.Item1, y = curStep.Item2, steps = curStep.Item3;
+                if (steps > maximumSteps || maze[y][x] == beenHere) { continue; }
+                uniqueCoordinates++;
+                maze[y][x] = beenHere;
+                steps++;
+                if (x > 0 && maze[y][x - 1] == openSpace) { queue.Enqueue(new Tuple<int, int, int>(x - 1, y, steps)); }
+                if (x < (maze[0].Length - 2) && maze[y][x + 1] == openSpace) { queue.Enqueue(new Tuple<int, int, int>(x + 1, y, steps)); }
+                if (y > 0 && maze[y - 1][x] == openSpace) { queue.Enqueue(new Tuple<int, int, int>(x, y - 1, steps)); }
+                if (y < (maze.Length - 2) && maze[y + 1][x] == openSpace) { queue.Enqueue(new Tuple<int, int, int>(x, y + 1, steps)); }
+            }
+
+            return uniqueCoordinates;
         }
 
         public char[][] CreateMaze(int seed, int height, int width)
@@ -35,7 +81,6 @@ namespace AdventOfCode.Challenges
                     maze[i][j] = IsBinarySumEven(sum) ? openSpace : wall;
                 }
             }
-
             return maze;
         }
 
