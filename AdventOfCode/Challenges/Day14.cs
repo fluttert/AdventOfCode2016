@@ -11,7 +11,7 @@ namespace AdventOfCode.Challenges
     {
         internal static System.Security.Cryptography.MD5 Md5 = System.Security.Cryptography.MD5.Create();
 
-        public int Part1(string[] input)
+        public int Part1(string[] input, int keystretching = 0)
         {
             string salt = input[0].Trim();
             int currentIndex = 0;
@@ -32,12 +32,11 @@ namespace AdventOfCode.Challenges
                         // skip yourself
                         if (j == indexModThousand) { continue; }
 
-
                         if (quintets[j].Contains(curChar))
                         {
                             keyFound = true;
                             keysFound++;
-                            Debug.WriteLine($"Found key for index: {currentIndex - 1000}");
+                            Debug.WriteLine($"Found key {keysFound} for index: {currentIndex - 1000}");
                             break;
                         }
                     }
@@ -53,13 +52,28 @@ namespace AdventOfCode.Challenges
                     Md5.ComputeHash(
                         Encoding.UTF8.GetBytes(salt + currentIndex)
                         )
-                     ).Replace("-", "");
+                     ).Replace("-", "").ToLowerInvariant();
+
+                // part 2
+                for (int keystretch = 0; keystretch < keystretching; keystretch++)
+                {
+                    hash = BitConverter.ToString(
+                    Md5.ComputeHash(
+                        Encoding.UTF8.GetBytes(hash)
+                        )
+                     ).Replace("-", "").ToLowerInvariant();
+                }
 
                 triplets[indexModThousand] = ConsecutiveChars(hash, 3);
                 quintets[indexModThousand] = ConsecutiveChars(hash, 5);
                 currentIndex++;
             }
             return currentIndex;
+        }
+
+        public int Part2(string[] input)
+        {
+            return Part1(input, 2016);
         }
 
         public string ConsecutiveChars(string input, int length)
@@ -80,11 +94,6 @@ namespace AdventOfCode.Challenges
                 if (consecutive) { consecutivechars.Add(curChar); }
             }
             return new string(consecutivechars.ToArray());
-        }
-
-        public int Part2(string[] input)
-        {
-            return 0;
         }
     }
 }
