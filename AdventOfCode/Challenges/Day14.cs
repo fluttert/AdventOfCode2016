@@ -16,98 +16,50 @@ namespace AdventOfCode.Challenges
             string salt = input[0].Trim();
             int currentIndex = 0;
             int keysFound = 0;
-            while (keysFound < 64 && currentIndex<200000) {
+            string[] triplets = new string[1000];
+            string[] quintets = new string[1000];
+            string[] hashes = new string[1000];
+            while (keysFound < 64 && currentIndex < 1e+6)
+            {
+                // search the current space (so n-1000)
+                int indexModThousand = currentIndex % 1000;
+                if (!string.IsNullOrEmpty(triplets[indexModThousand]))
+                {
+                    bool keyFound = false;
+                    char curChar = triplets[indexModThousand][0];
+                    for (int j = 0; j < 1000; j++)
+                    {
+                        // skip yourself
+                        if (j == indexModThousand) { continue; }
+
+
+                        if (quintets[j].Contains(curChar))
+                        {
+                            keyFound = true;
+                            keysFound++;
+                            Debug.WriteLine($"Found key for index: {currentIndex - 1000}");
+                            break;
+                        }
+                    }
+
+                    if (keysFound == 64)
+                    {
+                        return currentIndex - 1000;
+                    }
+                }
+
+                // overwrite with new entry (= n)
                 string hash = BitConverter.ToString(
                     Md5.ComputeHash(
                         Encoding.UTF8.GetBytes(salt + currentIndex)
                         )
                      ).Replace("-", "");
-                var triplet = ConsecutiveChars(hash, 3);
-                if (string.IsNullOrEmpty(triplet)){ currentIndex++; continue; }
 
-                bool keyFound = false;
-                for (int i = 1; i <= 1000; i++) {
-                    if (keyFound) { break; }
-                    string hash2 = BitConverter.ToString(
-                    Md5.ComputeHash(
-                        Encoding.UTF8.GetBytes(salt + (currentIndex+i))
-                        )
-                     ).Replace("-", "");
-                    var quintet = ConsecutiveChars(hash2, 5);
-
-                    if (string.IsNullOrEmpty(quintet)) {  continue; }
-
-                    
-                    if (!keyFound && quintet.Contains(triplet[0])) {
-                        keyFound = true;
-                        keysFound++;
-                        Debug.WriteLine($"Found key {keysFound} on index: {currentIndex}");
-                    }
-                    
-                }
+                triplets[indexModThousand] = ConsecutiveChars(hash, 3);
+                quintets[indexModThousand] = ConsecutiveChars(hash, 5);
                 currentIndex++;
             }
-
-            return currentIndex-1;
-
-
-
-
-
-
-
-
-
-            //string[] triplets = new string[1000];
-            //string[] quintets = new string[1000];
-            //string[] hashes = new string[1000];
-            
-
-            //while (keysFound< 64 && currentIndex < 1e+6)
-            //{
-            //    int indexModThousand = currentIndex % 1000;
-            //    // search back
-            //    if (!string.IsNullOrEmpty(triplets[indexModThousand])) {
-            //        bool keyFound = false;
-            //        for (int i = 0; i < triplets[indexModThousand].Length; i++) {
-            //            char curChar = triplets[indexModThousand][i];
-            //            if (keyFound) { break; }
-            //            for (int j = 0; j < 1000; j++) {
-            //                if (quintets[j].Contains(curChar)) {
-            //                    //Debug.WriteLine($"Found quintent for index: {currentIndex-1000} , it was a {curChar}");
-            //                    keyFound = true;
-            //                    break;
-            //                }
-            //            }
-            //        }
-
-            //        // keyfound
-            //        if (keyFound) {
-            //            keysFound++;
-            //            Debug.WriteLine($"Found key for index: {currentIndex - 1000}");
-            //        }
-            //        if (keysFound == 64)
-            //        {
-            //            return currentIndex - 1000;
-            //        }
-
-            //    }
-            //    if (currentIndex == 1000) {
-            //        var a = 123;
-            //    }
-
-            //    // overwrite with new entry
-            //    string hash = BitConverter.ToString(
-            //        Md5.ComputeHash(
-            //            Encoding.UTF8.GetBytes(salt + currentIndex)
-            //            )
-            //         ).Replace("-","");
-                
-            //    triplets[indexModThousand] = ConsecutiveChars(hash, 3);
-            //    quintets[indexModThousand] = ConsecutiveChars(hash, 5);
-            //    currentIndex++;
-            //}
-            //return 0;
+            return currentIndex;
         }
 
         public string ConsecutiveChars(string input, int length)
