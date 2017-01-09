@@ -58,6 +58,7 @@
     <Compile Include="Challenges\Day14.cs" />
     <Compile Include="Challenges\Day15.cs" />
     <Compile Include="Challenges\Day16.cs" />
+    <Compile Include="Challenges\Day17.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
