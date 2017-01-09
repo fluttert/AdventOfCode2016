@@ -45,7 +45,7 @@ namespace AdventOfCode
 
         public string Part2(string[] input)
         {
-            return string.Empty;
+            return Part1(input, 35651584);
         }
     }
 }
