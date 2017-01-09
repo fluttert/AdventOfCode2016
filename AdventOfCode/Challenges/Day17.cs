@@ -28,6 +28,8 @@ namespace AdventOfCode.Challenges
                 if (x == 3 && y == 3)
                 {
                     result = curItem.Item3;
+
+                    // Part 1 is shortest, part 2 is longest
                     if (longestPath) { continue; }
                     else { break; }
                 }
